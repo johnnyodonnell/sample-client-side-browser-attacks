@@ -32,6 +32,20 @@
         )
       sep)))
 
+(define get-origin
+  (lambda (req)
+    (let ([origin
+            (findf
+              (lambda (header)
+                (equal?
+                  (symbol->string
+                    (car header))
+                  "origin"))
+              (request-headers req))])
+      (if origin
+        (cdr origin)
+        "https://localhost:8443"))))
+
 ; Taken from
 ; https://docs.racket-lang.org/web-server/http.html#%28def._%28%28lib._web-server%2Fhttp%2Fresponse-structs..rkt%29._response%29%29
 (define server
@@ -57,7 +71,14 @@
                     #"strict=strict; SameSite=Strict")
                   (header
                     #"Set-Cookie"
-                    #"none=none; SameSite=None; Secure")))))
+                    #"none=none; SameSite=None; Secure")
+                  (header
+                    #"Access-Control-Allow-Origin"
+                    (string->bytes/utf-8
+                      (get-origin req)))
+                  (header
+                    #"Access-Control-Allow-Credentials"
+                    #"true")))))
 
 (serve/servlet server
                #:port 8443

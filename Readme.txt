@@ -48,6 +48,25 @@ Sample Hacks:
             vulnerable site makes updates to server state with GET
             requests, then this attack can capitalize on that
             misconfiguration.
+    3. CORS attack
+        Steps:
+            a. Start vulnerable server:
+                `racket vulnerable-site.rkt`
+            b. Start server that hosts malicious html pages
+                `python3 -m http.server`
+            c. Open 'cors.html'
+                http://localhost:8000/cors.html
+            d. View the response from the vulnerable site on the
+                'cors.html' page
+        Analysis:
+            This attack seems as though it may be pretty rare since
+            it requires the vulnerable site to allow any domain to
+            make cross origin requests.
+            When making a CORS request, only the cookies that have
+            set the SameSite attribute to 'None' are sent. This likely
+            isn't an issue because if an application is set up to
+            accept CORS requests, it likely also uses cookies that
+            set the SameSite attribute to 'None'.
 
 Notes:
     * Generating self-signed SSL certs for the Racket webserver
@@ -68,4 +87,5 @@ Resources:
     * https://github.com/johnnyodonnell/redirect-post
     * https://www.chromium.org/updates/same-site/faq/
         Contains interesting information about the "Lax + POST" mitigation
+    * https://github.com/whatwg/fetch/issues/769
 
