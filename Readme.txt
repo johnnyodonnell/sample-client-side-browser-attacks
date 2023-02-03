@@ -57,7 +57,7 @@ Notes:
         openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -nodes
         ```
     * Really no point to do a redirect post for a CSRF attack,
-        since the same effect can be achieved with zero clicks
+        since the same effect can be achieved with zero additional clicks
             See: https://portswigger.net/web-security/csrf
 
 Resources:
