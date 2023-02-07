@@ -1,5 +1,5 @@
 
-Sample Hacks:
+Sample Attacks:
     1. CSRF attack with hidden XHR script
         Steps:
             a. Start vulnerable server:
