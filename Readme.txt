@@ -80,6 +80,7 @@ Notes:
             See: https://portswigger.net/web-security/csrf
     * When loading an iframe, the browser only sends over cookies that
         set the SameSite attribute to 'None'.
+            See: https://stackoverflow.com/a/66682802/5832619
 
 Resources:
     * Portswigger
