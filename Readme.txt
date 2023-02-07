@@ -78,6 +78,8 @@ Notes:
     * Really no point to do a redirect post for a CSRF attack,
         since the same effect can be achieved with zero additional clicks
             See: https://portswigger.net/web-security/csrf
+    * When loading an iframe, the browser only sends over cookies that
+        set the SameSite attribute to 'None'.
 
 Resources:
     * Portswigger
