@@ -1,15 +1,15 @@
 
 Steps for executing attack:
-    1. Open 2 python3 HTTP servers:
+    1. Open python3 HTTP server:
         ```
         $ python3 -m http.server
-        $ python3 -m http.server 8080
         ```
     2. Open vulnerable site:
-        http://localhost:8080/vulnerable-site.html
+        http://localhost:8000/vulnerable-site.html
     3. Open link and see that vulnerable site's location has been changed
 
 Resource:
     * https://developer.mozilla.org/en-US/docs/Web/API/Window/opener
     * https://owasp.org/www-community/attacks/Reverse_Tabnabbing
+    * https://github.com/johnnys-exploits/johnnys-exploits.github.io
 
